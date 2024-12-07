@@ -1,0 +1,44 @@
+﻿@model CostumeModel
+@{
+    ViewData["Title"] = "Costume";
+}
+
+<h2>Add a Costume</h2>
+<form method="post" asp-action="Index" asp-controller="Costume">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label asp-for="CostumeName" class="control-label">Costume</label>
+        <input type="text" asp-for="CostumeName" placeholder="Enter costume name" class="form-control" />
+        <span asp-validation-for="CostumeName"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+
+</form>
+
+<br />
+
+<h2>Costumes</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Costume Name</th>
+            <th scope="col">Operation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var costume in Model.CostumeList)
+        {
+            <tr>
+                <td>@costume.CostumeName</td>
+                <td>
+                    <form method="post" asp-action="Delete" asp-controller="Costume">
+                        @Html.AntiForgeryToken()
+                        <input hidden asp-for="Id" value="@costume.Id" />
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

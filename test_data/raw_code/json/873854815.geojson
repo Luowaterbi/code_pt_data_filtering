@@ -1,0 +1,64 @@
+{
+  "id": 873854815,
+  "type": "Feature",
+  "properties": {
+    "addr:full":"1839 Carlyle St Beatrice NE 68310",
+    "addr:housenumber":"1839",
+    "addr:postcode":"68310",
+    "addr:street":"Carlyle St",
+    "edtf:cessation":"uuuu",
+    "edtf:inception":"uuuu",
+    "geom:area":0.0,
+    "geom:bbox":"-96.728849,40.282112,-96.728849,40.282112",
+    "geom:latitude":40.282112,
+    "geom:longitude":-96.728849,
+    "iso:country":"US",
+    "mz:hierarchy_label":1,
+    "sg:address":"1839 Carlyle St",
+    "sg:city":"Beatrice",
+    "sg:classifiers":[
+        {
+            "category":"Professional",
+            "subcategory":"Accounting & Tax Preparation",
+            "type":"Services"
+        }
+    ],
+    "sg:owner":"simplegeo",
+    "sg:phone":"+1 402 223 3777",
+    "sg:postcode":"68310",
+    "sg:province":"NE",
+    "sg:tags":[
+        "bookkeeping",
+        "general"
+    ],
+    "src:geom":"simplegeo",
+    "wof:belongsto":[],
+    "wof:breaches":[],
+    "wof:concordances":{
+        "sg:id":"SG_6zDomOlp1LU7EgDO0Yo3nm_40.282112_-96.728849@1294165850"
+    },
+    "wof:country":"US",
+    "wof:created":1464298910,
+    "wof:geomhash":"7b20ea7dc631b2cbe6f2ee8eb7cd5cb1",
+    "wof:hierarchy":[],
+    "wof:id":873854815,
+    "wof:lastmodified":1472633971,
+    "wof:name":"Jay's Tax Bookkeeping & Bill",
+    "wof:parent_id":-1,
+    "wof:placetype":"venue",
+    "wof:repo":"whosonfirst-data-venue-us-ne",
+    "wof:superseded_by":[],
+    "wof:supersedes":[],
+    "wof:tags":[
+        "bookkeeping",
+        "general"
+    ]
+},
+  "bbox": [
+    -96.728849,
+    40.282112,
+    -96.728849,
+    40.282112
+],
+  "geometry": {"coordinates":[-96.728849,40.282112],"type":"Point"}
+}

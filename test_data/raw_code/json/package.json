@@ -1,0 +1,22 @@
+{
+  "name" : "EventHub",
+  "version" : "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "compression": "^1.6.2",
+    "cors": "^2.7.1",
+    "cron": "^1.1.0",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "mkdirp": "^0.5.1",
+    "mongoose": "^4.4.17",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "passport": "^0.3.2",
+    "path": "^0.12.7",
+    "request": "^2.72.0",
+    "time": "^0.11.4"
+  },
+  "author": "clique",
+  "license": "ISC"  
+}
