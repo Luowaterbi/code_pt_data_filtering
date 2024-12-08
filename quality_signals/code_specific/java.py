@@ -6,6 +6,7 @@ from base import QSCodeBase, register_quality_signal
 from document import QSCodeDocument
 from utils.code.java_utils import *
 from redpajama.core.constants import PRECISION
+from redpajama.core.data_types import SignalType
 
 
 @register_quality_signal('qsc_codejava_cate_var_zero', 'codedocument')
@@ -16,7 +17,7 @@ class QSC_CodeJava_Cate_Var_Zero(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['java']:
             return [(0, len(code), None)]
 
@@ -32,7 +33,7 @@ class QSC_CodeJava_Frac_Lines_Func_Ratio(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['java']:
             return [(0, len(code), None)]
 
@@ -54,7 +55,7 @@ class QSC_CodeJava_Score_Lines_No_Logic(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['java']:
             return [(0, len(code), None)]
 
@@ -87,7 +88,7 @@ class QSC_CodeJava_Frac_Words_No_Modifier(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['java']:
             return [(0, len(code), None)]
 
@@ -128,7 +129,7 @@ class QSC_CodeJava_Frac_Words_Legal_Var_Name(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['java']:
             return [(0, len(code), None)]
 
@@ -160,7 +161,7 @@ class QSC_CodeJava_Frac_Words_Legal_Func_Name(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['java']:
             return [(0, len(code), None)]
 
@@ -190,7 +191,7 @@ class QSC_CodeJava_Frac_Words_Legal_Class_Name(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['java']:
             return [(0, len(code), None)]
 
@@ -220,7 +221,7 @@ class QSC_CodeJava_Frac_Lines_Print(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['java']:
             return [(0, len(code), None)]
 

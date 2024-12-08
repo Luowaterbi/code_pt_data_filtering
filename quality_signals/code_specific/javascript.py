@@ -6,6 +6,7 @@ from base import QSCodeBase, register_quality_signal
 from document import QSCodeDocument
 from utils.code.js_utils import *
 from redpajama.core.constants import PRECISION
+from redpajama.core.data_types import SignalType
 import regex as re
 
 
@@ -17,7 +18,7 @@ class QSC_CodeJavascript_Cate_Ast(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['javascript']:
             return [(0, len(code), None)]
 
@@ -33,7 +34,7 @@ class QSC_CodeJavascript_Cate_Var_Zero(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['javascript']:
             return [(0, len(code), None)]
 
@@ -53,7 +54,7 @@ class QSC_CodeJavascript_Frac_Lines_Func_Ratio(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['javascript']:
             return [(0, len(code), None)]
 
@@ -82,7 +83,7 @@ class QSC_CodeJavascript_Num_Statement_Line(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['javascript']:
             return [(0, len(code), None)]
 
@@ -107,7 +108,7 @@ class QSC_CodeJavascript_Score_Lines_No_Logic(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['javascript']:
             return [(0, len(code), None)]
 
@@ -143,7 +144,7 @@ class QSC_CodeJavascript_Frac_Words_Legal_Var_Name(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['javascript']:
             return [(0, len(code), None)]
 
@@ -176,7 +177,7 @@ class QSC_CodeJavascript_Frac_Words_Legal_Func_Name(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['javascript']:
             return [(0, len(code), None)]
 
@@ -209,7 +210,7 @@ class QSC_CodeJavascript_Frac_Words_Legal_Class_Name(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['javascript']:
             return [(0, len(code), None)]
 
@@ -243,7 +244,7 @@ class QSC_CodeJavascript_Frac_Lines_Print(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['javascript']:
             return [(0, len(code), None)]
 

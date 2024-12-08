@@ -21,7 +21,7 @@ class QSC_Code_Size_File_Byte(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.file_size_in_byte is None:
             return [(0, len(code), None)]
         
@@ -38,7 +38,7 @@ class QSC_Code_Num_Lines(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         score = len(code.raw_lines)
         return [(0, len(code), float(score))]
     
@@ -51,7 +51,7 @@ class QSC_Code_Num_Chars_Line_Max(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if len(code.raw_lines) != 0:
             score = max(len(text_slice.text) for text_slice in code.raw_lines)
         else:
@@ -67,7 +67,7 @@ class QSC_Code_Num_Chars_Line_Mean(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if len(code.raw_lines) == 0:
             return [(0, len(code), 0)]
 
@@ -83,7 +83,7 @@ class QSC_Code_Frac_Chars_Alphabet(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if len(code.visible_content) == 0:
             return [(0, len(code), 0.0)]
         
@@ -103,7 +103,7 @@ class QSC_Code_Frac_Chars_Comments(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
 
         score = None
         if len(code.raw_content) == 0:
@@ -127,7 +127,7 @@ class QSC_Code_Cate_Xml_Start(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         truncated_num = 100
         truncated_content = code.raw_content
         if len(code.raw_content) > truncated_num:
@@ -150,7 +150,7 @@ class QSC_Code_Frac_Lines_Dupe_Lines(QSCodeBase):
             return False
         return True
 
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if len(code.raw_lines) == 0 :
             return [(0, len(code), None)]
         
@@ -184,7 +184,7 @@ class QSC_Code_Cate_AutoGen(QSCodeBase):
         ]
         self.autogen_pattern = re.compile("|".join(autogen_strs), re.IGNORECASE)
 
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         target_str = code.raw_content[:200]
         result1 = bool(self.autogen_pattern.search(target_str))
         result2 = 'generate' in target_str.lower()
@@ -202,7 +202,7 @@ class QSC_Code_Frac_Lines_Long_String(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         lines = code.code_normalized_lines
         total = len(lines)
 
@@ -241,7 +241,7 @@ class QSC_Code_Frac_Chars_String_Length(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         total = len(code.code_raw_content)
         if total == 0:
             return [(0, len(code), None)]
@@ -272,7 +272,7 @@ class QSC_Code_Frac_Chars_Long_Word_Length(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         total = len(code.code_raw_content)
         if total == 0:
             return [(0, len(code), None)]
@@ -307,7 +307,7 @@ class QSC_Code_Frac_Lines_String_Concat(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         lines = code.code_normalized_lines
         total = len(lines)
         if total == 0:
@@ -337,7 +337,7 @@ class QSC_Code_Cate_Encoded_Data(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         raw_content = code.raw_content
 
         patterns = {
@@ -392,7 +392,7 @@ class QSC_Code_Frac_Lines_Prompt_Comments(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         prompt_comments = ['you code here', 'fixme', 'todo']
 
         total = len(code.raw_lines)
@@ -420,7 +420,7 @@ class QSC_Code_Frac_Lines_Assert(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         total = len(code.code_normalized_lines)
         if total == 0:
             return [(0, len(code), None)]

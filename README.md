@@ -29,8 +29,8 @@ This repository presents the first heuristic filtering framework tailored to lar
 │   ├── compute_filtering.py              (pipeline class for doing filtering process)
 │   └── compute_quality_signals.py        (pipeline class for computing quality signals)
 ├── 📂 quality_signals                    (implementation of all the quality signals)
-├── 📂 redpajama                          (copy from redpajama with little modification)
-├── 📂 test_data                          (test data used for the example)
+├── 📂 redpajama                          (copy from redpajama with a little modification)
+├── 📂 test_data                          (test data used for the usage example)
 ├── 📂 utils    
 ├── base.py                               (implementation of quality signal register)
 ├── document.py                           (implementation of code document class)
@@ -42,7 +42,7 @@ This repository presents the first heuristic filtering framework tailored to lar
 ## Requirements
 - Python version: `python>=3.7`
   
-You can install the required packages with the following command:
+You can install the required packages with the following commands:
 ```bash
 pip install -r requirements.txt
 ```
@@ -51,7 +51,7 @@ or
 conda env create -f environment.yml
 ```
 
-You also need to download our FastText model: [lang_predictor.bin](), which is used to predict the language of each file, and put it into `./artifacts/`.
+You also need to download our FastText model: [lang_predictor.bin](https://drive.google.com/file/d/1WFR0MgXWliRU4D0fCsb9OgjfPitNVaBD/view?usp=sharing), which is used to predict the language of each file, and put it into `./artifacts/`.
 
 ## Get Started
 We have set up a simple data filtering workflow in [data_cleaning_example.ipynb](./examples/data_cleaning_example.ipynb), which processes the sample data in `./test_data/raw_code/` for users to use as a reference.

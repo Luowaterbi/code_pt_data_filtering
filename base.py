@@ -1,11 +1,10 @@
 from redpajama.core.quality_signals.base import RPSBase
-from redpajama.core.data_types import SignalType
 
 from collections import defaultdict
 
 quality_signals_registry = defaultdict(dict)
 
-# Register quality signals
+# quality signals register
 def register_quality_signal(name, spec):
     def decorator(cls):
         assert name not in quality_signals_registry[spec]

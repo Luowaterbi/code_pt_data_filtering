@@ -5,6 +5,7 @@ Filters specific for HTML
 from base import QSCodeBase, register_quality_signal
 from document import QSCodeDocument
 from redpajama.core.constants import PRECISION
+from redpajama.core.data_types import SignalType
 
 @register_quality_signal('qsc_codehtml_cate_ast', 'codedocument')
 class QSC_CodeHtml_Cate_Ast(QSCodeBase):
@@ -15,7 +16,7 @@ class QSC_CodeHtml_Cate_Ast(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['html']:
             return [(0, len(code), None)]
 
@@ -32,7 +33,7 @@ class QSC_CodeHtml_Frac_Words_Text(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['html']:
             return [(0, len(code), None)]
         
@@ -57,7 +58,7 @@ class QSC_CodeHtml_Num_Chars_Text(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code:QSCodeDocument):
+    def __call__(self, code:QSCodeDocument) -> SignalType:
         if code.program_lang not in ['html']:
             return [(0, len(code), None)]
         soup = code.ast

@@ -1,6 +1,5 @@
 artifacts/lang_predictor.bin
 backup/
 __pycache__/
-test_data/backup/
 test_data/clean_code/
 test.ipynb

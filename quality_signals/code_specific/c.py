@@ -7,6 +7,7 @@ from base import QSCodeBase, register_quality_signal
 from document import QSCodeDocument
 from utils.code.c_utils import *
 from redpajama.core.constants import PRECISION
+from redpajama.core.data_types import SignalType
 
 @register_quality_signal('qsc_codec_frac_lines_func_ratio', 'codedocument')
 class QSC_CodeC_Frac_Lines_Func_Ratio(QSCodeBase):
@@ -16,7 +17,7 @@ class QSC_CodeC_Frac_Lines_Func_Ratio(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['c']:
             return [(0, len(code), None)]
 
@@ -38,7 +39,7 @@ class QSC_CodeC_Cate_Bitsstdc(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['c']:
             return [(0, len(code), None)]
 
@@ -57,7 +58,7 @@ class QSC_CodeC_Nums_Lines_Main(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['c']:
             return [(0, len(code), None)]
 
@@ -75,7 +76,7 @@ class QSC_CodeC_Frac_Lines_Goto(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['c']:
             return [(0, len(code), None)]
 
@@ -98,7 +99,7 @@ class QSC_CodeC_Cate_Var_Zero(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['c']:
             return [(0, len(code), None)]
 
@@ -115,7 +116,7 @@ class QSC_CodeC_Score_Lines_No_Logic(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['c']:
             return [(0, len(code), None)]
 
@@ -148,7 +149,7 @@ class QSC_CodeC_Frac_Lines_Print(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['c']:
             return [(0, len(code), None)]
 
@@ -172,7 +173,7 @@ class QSC_CodeC_Frac_Lines_Preprocessor_Directives(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['c', 'cpp']:
             return [(0, len(code), None)]
         

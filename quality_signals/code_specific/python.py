@@ -6,8 +6,8 @@ from base import QSCodeBase, register_quality_signal
 from document import QSCodeDocument
 from utils.code.python_utils import *
 
-
 from redpajama.core.constants import PRECISION
+from redpajama.core.data_types import SignalType
 
 import sys
 sys.setrecursionlimit(10000)  # increase the recursive depth limit to 10000
@@ -20,7 +20,7 @@ class QSC_CodePython_Cate_Ast(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['python']:
             return [(0, len(code), None)]
         parse_success = code.ast is not None
@@ -35,7 +35,7 @@ class QSC_CodePython_Frac_Lines_Func_Ratio(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['python']:
             return [(0, len(code), None)]
         if code.ast is None:
@@ -59,7 +59,7 @@ class QSC_CodePyton_Cate_Var_Zero(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['python']:
             return [(0, len(code), None)]
         if code.ast is None:
@@ -79,7 +79,7 @@ class QSC_CodePython_Frac_Lines_Pass(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['python']:
             return [(0, len(code), None)]
         non_empty_lines = code.code_normalized_lines
@@ -98,7 +98,7 @@ class QSC_CodePython_Frac_Lines_Import(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['python']:
             return [(0, len(code), None)]
         non_empty_lines = code.code_normalized_lines
@@ -118,7 +118,7 @@ class QSC_CodePython_Frac_Lines_SimpleFunc(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['python']:
             return [(0, len(code), None)]
         if code.ast is None:
@@ -154,7 +154,7 @@ class QSC_CodePython_Score_Lines_No_Logic(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code:QSCodeDocument):
+    def __call__(self, code:QSCodeDocument) -> SignalType:
         
         if code.program_lang not in ['python']:
             return [(0, len(code), None)]
@@ -191,7 +191,7 @@ class QSC_CodePython_Frac_Lines_Print(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code:QSCodeDocument):
+    def __call__(self, code:QSCodeDocument) -> SignalType:
         if code.program_lang not in ['python']:
             return [(0, len(code), None)]
 

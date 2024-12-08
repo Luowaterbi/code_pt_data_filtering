@@ -1,5 +1,4 @@
 from bs4 import BeautifulSoup
-from document import QSCodeDocument
 
 
 def parse_html(content: str):

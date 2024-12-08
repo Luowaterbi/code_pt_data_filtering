@@ -7,6 +7,7 @@ from document import QSCodeDocument
 from utils.code.csharp_utils import *
 
 from redpajama.core.constants import PRECISION
+from redpajama.core.data_types import SignalType
 
 @register_quality_signal('qsc_codecsharp_frac_lines_func_ratio', 'codedocument')
 class QSC_CodeCsharp_Frac_Lines_Func_Ratio(QSCodeBase):
@@ -16,7 +17,7 @@ class QSC_CodeCsharp_Frac_Lines_Func_Ratio(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code:QSCodeDocument):
+    def __call__(self, code:QSCodeDocument) -> SignalType:
         if code.program_lang not in ['csharp']:
             return [(0, len(code), None)]
         
@@ -39,7 +40,7 @@ class QSC_CodeCsharp_Cate_Var_Zero(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code:QSCodeDocument):
+    def __call__(self, code:QSCodeDocument) -> SignalType:
         if code.program_lang not in ['csharp']:
             return [(0, len(code), None)]
 
@@ -56,7 +57,7 @@ class QSC_CodeCsharp_Score_Lines_No_Logic(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['csharp']:
             return [(0, len(code), None)]
 
@@ -89,7 +90,7 @@ class QSC_CodeCsharp_Frac_Lines_Print(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['csharp']:
             return [(0, len(code), None)]
         

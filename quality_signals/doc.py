@@ -2,14 +2,12 @@
 Filters for general documents
 """
 
-from urllib.parse import urlparse, unquote
 import re
 from collections import Counter
 
 from base import QSCodeBase, register_quality_signal
 from document import QSCodeDocument
-from utils.constants import LANG_TO_REFINEDWEBSTOPWORDS
-from utils.constants import BULLETS, LANG_TO_PUNCTUATIONS
+from utils.constants import BULLETS
 
 
 from redpajama.core.constants import PRECISION
@@ -543,7 +541,7 @@ class QSC_Doc_Frac_Chars_Alphabet(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, document: QSCodeDocument):
+    def __call__(self, document: QSCodeDocument) -> SignalType:
         if len(document.visible_content) == 0:
             return [(0, len(document), 0.0)]
         if document.language != 'en':
@@ -566,7 +564,7 @@ class QSC_Doc_Frac_Chars_Digital(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, document: QSCodeDocument):
+    def __call__(self, document: QSCodeDocument) -> SignalType:
         count, total = 0, 0
         
         total = len(document.visible_content)
@@ -591,7 +589,7 @@ class QSC_Doc_Frac_Chars_Whitespace(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, document: QSCodeDocument):
+    def __call__(self, document: QSCodeDocument) -> SignalType:
         count, total = 0, 0
         
         total = len(document.raw_content)

@@ -7,6 +7,7 @@ from base import QSCodeBase, register_quality_signal
 from document import QSCodeDocument
 from utils.code.c_utils import *
 from redpajama.core.constants import PRECISION
+from redpajama.core.data_types import SignalType
 
 @register_quality_signal('qsc_codecpp_frac_lines_func_ratio', 'codedocument')
 class QSC_CodeCpp_Frac_Lines_Func_Ratio(QSCodeBase):
@@ -16,11 +17,11 @@ class QSC_CodeCpp_Frac_Lines_Func_Ratio(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['cpp']:
             return [(0, len(code), None)]
 
-        count = len(find_functions(code.code_raw_content)) # TODO
+        count = len(find_functions(code.code_raw_content))
         total = len(code.code_normalized_lines)
         if total == 0:
             return [(0, len(code), None)]
@@ -38,7 +39,7 @@ class QSC_CodeCpp_Cate_Bitsstdc(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['cpp']:
             return [(0, len(code), None)]
 
@@ -57,7 +58,7 @@ class QSC_CodeCpp_Nums_Lines_Main(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['cpp']:
             return [(0, len(code), None)]
 
@@ -75,7 +76,7 @@ class QSC_CodeCpp_Frac_Lines_Goto(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['cpp']:
             return [(0, len(code), None)]
 
@@ -98,7 +99,7 @@ class QSC_CodeCpp_Cate_Var_Zero(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['cpp']:
             return [(0, len(code), None)]
 
@@ -115,7 +116,7 @@ class QSC_CodeCpp_Score_Lines_No_Logic(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['cpp']:
             return [(0, len(code), None)]
 
@@ -149,7 +150,7 @@ class QSC_CodeCpp_Frac_Lines_Print(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['cpp']:
             return [(0, len(code), None)]
 

@@ -6,6 +6,7 @@ from base import QSCodeBase, register_quality_signal
 from document import QSCodeDocument
 from utils.code.go_utils import *
 from redpajama.core.constants import PRECISION
+from redpajama.core.data_types import SignalType
 
 @register_quality_signal('qsc_codego_cate_testfile', 'codedocument')
 class QSC_CodeGo_Cate_Testfile(QSCodeBase):
@@ -15,7 +16,7 @@ class QSC_CodeGo_Cate_Testfile(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['go']:
             return [(0, len(code), None)]
 
@@ -33,7 +34,7 @@ class QSC_CodeGo_Frac_Lines_Func_Ratio(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def __call__(self, code:QSCodeDocument):
+    def __call__(self, code:QSCodeDocument) -> SignalType:
         if code.program_lang not in ['go']:
             return [(0, len(code), None)]
 
@@ -55,7 +56,7 @@ class QSC_CodeGo_Cate_Var_Zero(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(slef, code: QSCodeDocument):
+    def __call__(slef, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['go']:
             return [(0, len(code), None)]
 
@@ -71,7 +72,7 @@ class QSC_CodeGo_Score_Lines_No_Logic(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code:QSCodeDocument):
+    def __call__(self, code:QSCodeDocument) -> SignalType:
         if code.program_lang not in ['go']:
             return [(0, len(code), None)]
 
@@ -103,7 +104,7 @@ class QSC_CodeGo_Frac_Lines_Print(QSCodeBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
     
-    def __call__(self, code: QSCodeDocument):
+    def __call__(self, code: QSCodeDocument) -> SignalType:
         if code.program_lang not in ['go']:
             return [(0, len(code), None)]
 
