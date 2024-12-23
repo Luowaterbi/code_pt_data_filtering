@@ -1,4 +1,5 @@
 import json
+import random
 
 from pipeline.code_filter_config import text_filter_config, code_filter_config
 
