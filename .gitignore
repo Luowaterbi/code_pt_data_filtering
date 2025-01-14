@@ -3,3 +3,5 @@ backup/
 __pycache__/
 test_data/clean_code/
 test.ipynb
+output.csv
+test.py
